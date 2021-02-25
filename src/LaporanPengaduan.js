@@ -384,6 +384,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
         fontSize: 16,
         marginVertical: 10,
+        color: '#ffffff',
     },
 
 });

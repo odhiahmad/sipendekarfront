@@ -1,9 +1,7 @@
-import {StatusBar, Text, TouchableOpacity, View,StyleSheet} from "react-native";
+import {ImageBackground, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import React, {Component} from "react";
-import {Header, Icon, Tile, ListItem, Button, BottomSheet} from 'react-native-elements';
-import Ripple from "react-native-material-ripple";
+import {Icon} from 'react-native-elements';
 import * as ImagePicker from "expo-image-picker";
-
 
 
 export default class HomeScreen extends Component {
@@ -68,61 +66,123 @@ export default class HomeScreen extends Component {
             },
         ];
 
-        const {navigate} = this.props.navigation;
+        const {navigation} = this.props.navigation;
         return (
-            <View style={{flex:1}}>
-                <StatusBar translucent backgroundColor="rgba(0,0,0,0.4)"/>
-                <Header
-                    containerStyle={{height:80}}
-                    backgroundColor='#e52d27'
-                    centerComponent={{ text: 'SIPENDEKAR', style: { color: '#fff',fontWeight:'bold' } }}
-                />
+            <ImageBackground
+                source={require("./images/back.png")}
+                style={{width: "100%", height: "100%"}}
+            >
 
 
+                <View style={{paddingHorizontal: 40, marginTop: 80}}>
+                    <Text
+                        style={{
+                            fontSize: 40,
+                            color: "#522289",
+                        }}
+                    >
+                        Hello
+                    </Text>
+                    <Text
+                        style={{
+                            fontSize: 15,
+                            paddingVertical: 10,
+                            paddingRight: 80,
+                            lineHeight: 22,
+                            color: "#a2a2db",
+                        }}
+                    >
+                        Selamat Datang di SIPENDEKAR Sistem Pendeteksi Kebakaran
+                    </Text>
+                    {/*<View*/}
+                    {/*    style={{*/}
+                    {/*        flexDirection: "row",*/}
+                    {/*        backgroundColor: "#FFF",*/}
+                    {/*        borderRadius: 40,*/}
+                    {/*        alignItems: "center",*/}
+                    {/*        paddingVertical: 10,*/}
+                    {/*        paddingHorizontal: 20,*/}
+                    {/*        marginTop: 30,*/}
+                    {/*    }}*/}
+                    {/*>*/}
+                    {/*    <Image*/}
+                    {/*        source={require("./images/search.png")}*/}
+                    {/*        style={{height: 14, width: 14}}*/}
+                    {/*    />*/}
+                    {/*    <TextInput*/}
+                    {/*        placeholder="Lorem ipsum"*/}
+                    {/*        style={{paddingHorizontal: 20, fontSize: 15, color: "#ccccef"}}*/}
+                    {/*    />*/}
+                    {/*</View>*/}
 
-                <View style={{backgroundColor: 'white', padding: 5,flex: 1,
-                    justifyContent:'flex-start'}}>
-                    <Button
-                        onPress={() => navigate("LaporanPengaduan")}
-                        titleStyle={{fontSize:25}}
-                        buttonStyle={{backgroundColor:'#e52d27',height:120,marginTop:20}}
-                        icon={
-                            <Icon
-                                name="phone"
-                                size={25}
-                                color="white"
-                                type="font-awesome-5"
-                            />
-                        }
-                        iconRight
-                        title="Laporkan "
-                    />
-                    <Button
-                        onPress={() => navigate("LaporanPengaduan")}
-                        titleStyle={{fontSize:25}}
-                        buttonStyle={{backgroundColor:'#e52d27',height:120,marginTop:20}}
-                        icon={
-                            <Icon
-                                name="fire"
-                                size={25}
-                                color="white"
-                                type="font-awesome-5"
-                            />
-                        }
-                        iconRight
-                        title="About "
-                    />
+                    <View style={{flexDirection: "row",alignItems: "center",
+                        justifyContent: "center", marginTop: 350}}>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate("LaporanPengaduan")}
+                            style={{
+                                alignItems: "center",
+                                justifyContent: "center",
+                                height: 100,
+                                width: 120,
+
+                            }}>
+                            <View
+
+                                style={{
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    height: 66,
+                                    width: 66,
+                                    borderRadius: 50,
+                                    backgroundColor: "#5facdb",
+                                }}
+                            >
+                                <Icon type='font-awesome-5' name='briefcase' color='#fff'
+                                />
+                            </View>
+                            <Text
+                                style={{
+                                    fontSize: 14,
+                                    color: "gray",
+                                }}
+                            >Data Laporan</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate("About")}
+                            style={{
+                                alignItems: "center",
+                                justifyContent: "center",
+                                height: 100,
+                                width: 120,
+
+                            }}>
+                            <View
+
+                                style={{
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    height: 66,
+                                    width: 66,
+                                    borderRadius: 50,
+                                    backgroundColor: "#ff5c83",
+                                    marginHorizontal: 22,
+                                }}
+                            >
+                                <Icon type='font-awesome-5' name='clipboard-check' color='#fff'
+                                />
+                            </View>
+                            <Text
+                                style={{
+                                    fontSize: 14,
+                                    color: "gray",
+                                }}
+                            >About</Text>
+                        </TouchableOpacity>
+
+
+                    </View>
                 </View>
-                <BottomSheet isVisible={this.state.isVisible}>
-                    {list.map((l, i) => (
-                        <ListItem key={i} containerStyle={l.containerStyle} onPress={l.onPress}>
-                            <ListItem.Content>
-                                <ListItem.Title style={l.titleStyle}>{l.title}</ListItem.Title>
-                            </ListItem.Content>
-                        </ListItem>
-                    ))}
-                </BottomSheet>
-            </View>
+            </ImageBackground>
         );
     }
 

@@ -10,7 +10,10 @@ export default class About extends Component {
             <View style={{flex: 1}}>
                 <StatusBar translucent backgroundColor="rgba(0,0,0,0.4)"/>
                 <Header
-                    backgroundColor='#e52d27'
+                    containerStyle={{
+                        height:80
+                    }}
+                    backgroundColor='gray'
                     leftComponent={
                         <Ripple onPress={() => {
                             this.props.navigation.pop()
@@ -21,10 +24,10 @@ export default class About extends Component {
                     centerComponent={{text: 'About', style: {color: '#fff',fontWeight:'bold'}}}
                 />
                 <PricingCard
-                    color="red"
-                    title="Aplikasi Bencana"
-                    info={['Aplikasi ini dibuat untuk melaporkan dan melihat informasi bencana']}
-                    button={{ title: ' Lihat Website Aplikasi Bencana ', icon: 'flight-takeoff' }}
+                    color="gray"
+                    title="Aplikasi SIPENDEKAR"
+                    info={['Aplikasi SISTEM Pelaporan Kebakaran ini dibuat untuk melaporkan dan melihat informasi Kebakaran']}
+                    button={{ title: ' Lihat Website Aplikasi SIPENDEKAR ', icon: 'flight-takeoff' }}
                 />
             </View>
         );
